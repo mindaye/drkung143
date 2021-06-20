@@ -10,7 +10,7 @@ import csv
 
 
 #log = core.getLogger()
-delayFile = "delay.csv"
+delayFile = "abilen_delay.csv"
 
 ''' Add your global variables here ... '''
 delayFile = csv.DictReader(open(delayFile))
@@ -27,15 +27,31 @@ class Dijkstra (EventMixin):
             self.thelist[link] = delay
         print self.thelist
         # make a graph with all of the switches and their delay values
-        graph = {'s11': {'s12': self.thelist["g"] , 's18': self.thelist["k"]},
-            's12': {'h13': 1, 's14': self.thelist["h"] , 's16': self.thelist["m"] , 's18': self.thelist["l"]},
-            's14': {'h15': 1, 's12': self.thelist["h"] , 's18': self.thelist["n"] , 's16': self.thelist["i"]},
-            's16': {'h17': 1, 's12': self.thelist["m"] , 's14': self.thelist["i"] , 's18': self.thelist["j"]},
-            's18': {'h19': 1, 's12': self.thelist["l"] , 's16': self.thelist["j"] , 's14': self.thelist["n"]},
-            'h13': {'s12': 0},
-            'h15': {'s14': 0},
-            'h17': {'s16': 0},
-            'h19': {'s18': 0},
+        graph = {'s1': {'h1': 1, 's2': self.thelist["A"] , 's3': self.thelist["N"]},
+            's2': {'h2': 1, 's4': self.thelist["B"] , 's3': self.thelist["M"] },
+            's4': {'h4': 1, 's5': self.thelist["C"] , 's10': self.thelist["I"] },
+            's5': {'h5': 1, 's9': self.thelist["H"] , 's6': self.thelist["D"] },
+            's6': {'h6': 1, 's7': self.thelist["E"] },
+            's7': {'h7': 1, 's8': self.thelist["F"] },
+            's8': {'h8': 1, 's9': self.thelist["G"] },
+            's9': {'h9': 1, 's10': self.thelist["J"] },
+            's10': {'h10': 1, 's11': self.thelist["K"] },
+            's11': {'h11': 1, 's3': self.thelist["L"] },
+            'h1': {'s1': 0},
+            'h2': {'s2': 0},
+            'h3': {'s3': 0},
+            'h4': {'s4': 0},
+            'h5': {'s5': 0},
+            'h6': {'s6': 0},
+            'h7': {'s7': 0},
+            'h8': {'s8': 0},
+            'h9': {'s9': 0},
+            'h10': {'s10': 0},
+            'h11': {'s11': 0},
+            'h12': {'s12': 0},
+            'h13': {'s13': 0},
+            'h14': {'s14': 0},
+            'h15': {'s15': 0},
             }
 
     # from http://geekly-yours.blogspot.com/2014/03/dijkstra-algorithm-python-example-source-code-shortest-path.html
